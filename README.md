@@ -12,3 +12,7 @@ Example input and output folders can be found at `p2rank/input` and `p2rank/outp
 Currently, P2Rank is configured for AlphaFold-predicted structures. For predicting on the experimental PDB structures, contact me to change the configuration.
 
 ## AF2Bind
+
+
+## Future work
+1. large portion of the sequences is in disordered regions. Would it make sense to filter the predictions based on pLDDT? i.e. remove predicted pockets in regions with pLDDT \< 50
