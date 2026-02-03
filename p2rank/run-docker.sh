@@ -25,4 +25,7 @@ sudo docker run -i -v "$INPUT_PATH":/opt/p2rank/input -v "$OUTPUT_PATH":/opt/p2r
 
 # post-processing: extract pockets from _residues.csv files, save results to .npy files and clean up
 python3 ./post-processing.py --path "$OUTPUT_PATH"
-rm "$OUTPUT_PATH"/*_predictions.csv "$OUTPUT_PATH"/*_residues.csv "$OUTPUT_PATH"/params.txt "$OUTPUT_PATH"/run.log
+sudo find $OUTPUT_PATH -name "*_predictions.csv" -delete
+sudo find $OUTPUT_PATH -name "*_residues.csv" -delete
+sudo find $OUTPUT_PATH -name "params.txt" -delete
+sudo find $OUTPUT_PATH -name "run.log" -delete
