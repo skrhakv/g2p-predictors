@@ -22,3 +22,7 @@ fi
 
 # run p2rank inside docker
 sudo docker run -i -v "$INPUT_PATH":/opt/p2rank/input -v "$OUTPUT_PATH":/opt/p2rank/output -t p2rank ./prank predict -o output/ -c alphafold input/input.ds -visualizations 0
+
+# post-processing: extract pockets from _residues.csv files, save results to .npy files and clean up
+python3 ./post-processing.py --path "$OUTPUT_PATH"
+rm "$OUTPUT_PATH"/*_predictions.csv "$OUTPUT_PATH"/*_residues.csv "$OUTPUT_PATH"/params.txt "$OUTPUT_PATH"/run.log
