@@ -37,12 +37,15 @@ def load_model():
     return af_model
 
 def predict(af_model, pdb_path, chain_id):
-    af_model.prep_inputs(pdb_filename=pdb_path,
-                         chain=chain_id,
-                         binder_len=20,
-                         rm_target_sc=MASK_SIDECHAINS,
-                         rm_target_seq=MASK_SEQUENCE)
-    
+    try:
+        af_model.prep_inputs(pdb_filename=pdb_path,
+                                 chain=chain_id,
+                                 binder_len=20,
+                                 rm_target_sc=MASK_SIDECHAINS,
+                                 rm_target_seq=MASK_SEQUENCE)
+    except ValueError as e:
+        print(f"Error processing {pdb_path} chain {chain_id}: {e}")
+        return None
     r_idx = af_model._inputs["residue_index"][-20] + (1 + np.arange(20)) * 50
     af_model._inputs["residue_index"][-20:] = r_idx.flatten()
     
@@ -54,8 +57,8 @@ def predict(af_model, pdb_path, chain_id):
     pred_bind = o["p_bind"].copy()
     return pred_bind
 
-###### End of adapted code ######
 
+###### End of adapted code ######
 
 
 import argparse
@@ -72,6 +75,8 @@ def main(input_path, output_path):
 # ----> CAUTION: the chain ID needs to be changed if the structure is not AlphaFold output
         chain_id = "A"
         predictions = predict(model, input_path_file, chain_id)
+        if predictions is None: # this might happen if there was an error processing the PDB
+            continue
 
         np.save(os.path.join(output_path, file.replace(".pdb", ".npy")), predictions)
 
