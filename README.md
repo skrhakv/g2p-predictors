@@ -10,6 +10,11 @@ where `<FULL-INPUT-PATH>` contains all `*.cif` and `.pdb` files for the predicti
 
 Example input and output folders can be found at `p2rank/input` and `p2rank/output`. 
 
+### Run for G2P structures - example
+```
+sudo bash run-docker.sh /media/drive1/g2p_data/shared_data/alphafold_v6/pdb /media/drive1/g2p_data/data_releases/2025_10/processed_data/p2rank_features
+```
+
 ## AF2Bind
 Similarly, the `AF2Bind/run-docker.sh` script can be used to run the AF2Bind predictor:
 ```

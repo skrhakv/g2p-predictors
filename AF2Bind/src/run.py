@@ -49,12 +49,18 @@ def predict(af_model, pdb_path, chain_id):
     r_idx = af_model._inputs["residue_index"][-20] + (1 + np.arange(20)) * 50
     af_model._inputs["residue_index"][-20:] = r_idx.flatten()
     
+    if af_model._inputs["aatype"].shape[0] >= 2221:
+        print(f'Error: {pdb_path} chain {chain_id} has more than 2221 residues, which would cause OOM error.')
+        return None
+    
+    print(f"Predicting binding for {pdb_path} chain {chain_id}, size {af_model._inputs['aatype'].shape}...")
     af_model.set_seq("ACDEFGHIKLMNPQRSTVWY")
     af_model.predict(verbose=False)
     
     o = af2bind(af_model.aux["debug"]["outputs"],
                 mask_sidechains=MASK_SIDECHAINS)
     pred_bind = o["p_bind"].copy()
+    
     return pred_bind
 
 
@@ -66,9 +72,15 @@ import os
 
 def main(input_path, output_path):
     for file in os.listdir(input_path):
+        output_filename = file.replace(".pdb", ".npy")
         if not file.endswith(".pdb"):
             continue
+        if output_filename in os.listdir(output_path):
+            continue
+
         input_path_file = os.path.join(input_path, file)
+
+        print(f"Processing {input_path_file}...")
 
         model = load_model()
 
@@ -78,7 +90,7 @@ def main(input_path, output_path):
         if predictions is None: # this might happen if there was an error processing the PDB
             continue
 
-        np.save(os.path.join(output_path, file.replace(".pdb", ".npy")), predictions)
+        np.save(os.path.join(output_path, output_filename), predictions)
 
 
 if __name__ == "__main__":

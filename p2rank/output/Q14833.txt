@@ -1,0 +1,913 @@
+residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pocket_sas_points	pocket_surf_atoms
+1	MET	A					
+2	PRO	A					
+3	GLY	A					
+4	LYS	A					
+5	ARG	A					
+6	GLY	A					
+7	LEU	A					
+8	GLY	A					
+9	TRP	A					
+10	TRP	A					
+11	TRP	A					
+12	ALA	A					
+13	ARG	A					
+14	LEU	A					
+15	PRO	A					
+16	LEU	A					
+17	CYS	A					
+18	LEU	A					
+19	LEU	A					
+20	LEU	A					
+21	SER	A					
+22	LEU	A					
+23	TYR	A					
+24	GLY	A					
+25	PRO	A					
+26	TRP	A					
+27	MET	A					
+28	PRO	A					
+29	SER	A					
+30	SER	A					
+31	LEU	A					
+32	GLY	A					
+33	LYS	A					
+34	PRO	A					
+35	LYS	A					
+36	GLY	A					
+37	HIS	A					
+38	PRO	A					
+39	HIS	A	2	12.19	0.556	86	35
+40	MET	A	2	12.19	0.556	86	35
+41	ASN	A	2	12.19	0.556	86	35
+42	SER	A					
+43	ILE	A					
+44	ARG	A					
+45	ILE	A					
+46	ASP	A					
+47	GLY	A					
+48	ASP	A					
+49	ILE	A					
+50	THR	A					
+51	LEU	A					
+52	GLY	A					
+53	GLY	A					
+54	LEU	A					
+55	PHE	A					
+56	PRO	A	1	26.79	0.876	133	69
+57	VAL	A					
+58	HIS	A	2	12.19	0.556	86	35
+59	GLY	A					
+60	ARG	A	1	26.79	0.876	133	69
+61	GLY	A					
+62	SER	A					
+63	GLU	A					
+64	GLY	A					
+65	LYS	A					
+66	PRO	A	2	12.19	0.556	86	35
+67	CYS	A	2	12.19	0.556	86	35
+68	GLY	A	2	12.19	0.556	86	35
+69	GLU	A					
+70	LEU	A					
+71	LYS	A	1	26.79	0.876	133	69
+72	LYS	A					
+73	GLU	A					
+74	LYS	A	1	26.79	0.876	133	69
+75	GLY	A					
+76	ILE	A					
+77	HIS	A					
+78	ARG	A	1	26.79	0.876	133	69
+79	LEU	A					
+80	GLU	A					
+81	ALA	A					
+82	MET	A					
+83	LEU	A					
+84	PHE	A					
+85	ALA	A					
+86	LEU	A					
+87	ASP	A					
+88	ARG	A	10	0.86	0.003	26	13
+89	ILE	A					
+90	ASN	A					
+91	ASN	A					
+92	ASP	A	10	0.86	0.003	26	13
+93	PRO	A					
+94	ASP	A					
+95	LEU	A	10	0.86	0.003	26	13
+96	LEU	A					
+97	PRO	A					
+98	ASN	A					
+99	ILE	A					
+100	THR	A					
+101	LEU	A					
+102	GLY	A					
+103	ALA	A					
+104	ARG	A					
+105	ILE	A					
+106	LEU	A					
+107	ASP	A	2	12.19	0.556	86	35
+108	THR	A	1	26.79	0.876	133	69
+109	CYS	A					
+110	SER	A	1	26.79	0.876	133	69
+111	ARG	A					
+112	ASP	A					
+113	THR	A					
+114	HIS	A	2	12.19	0.556	86	35
+115	ALA	A					
+116	LEU	A					
+117	GLU	A					
+118	GLN	A	2	12.19	0.556	86	35
+119	SER	A					
+120	LEU	A					
+121	THR	A					
+122	PHE	A					
+123	VAL	A					
+124	GLN	A					
+125	ALA	A					
+126	LEU	A					
+127	ILE	A					
+128	GLU	A					
+129	LYS	A					
+130	ASP	A					
+131	GLY	A					
+132	THR	A					
+133	GLU	A					
+134	VAL	A					
+135	ARG	A					
+136	CYS	A					
+137	GLY	A					
+138	SER	A					
+139	GLY	A					
+140	GLY	A					
+141	PRO	A					
+142	PRO	A					
+143	ILE	A					
+144	ILE	A					
+145	THR	A					
+146	LYS	A					
+147	PRO	A					
+148	GLU	A					
+149	ARG	A					
+150	VAL	A					
+151	VAL	A					
+152	GLY	A					
+153	VAL	A					
+154	ILE	A					
+155	GLY	A					
+156	ALA	A					
+157	SER	A	1	26.79	0.876	133	69
+158	GLY	A	1	26.79	0.876	133	69
+159	SER	A	1	26.79	0.876	133	69
+160	SER	A	1	26.79	0.876	133	69
+161	VAL	A	1	26.79	0.876	133	69
+162	SER	A					
+163	ILE	A					
+164	MET	A					
+165	VAL	A					
+166	ALA	A					
+167	ASN	A					
+168	ILE	A					
+169	LEU	A					
+170	ARG	A					
+171	LEU	A					
+172	PHE	A					
+173	LYS	A					
+174	ILE	A					
+175	PRO	A					
+176	GLN	A					
+177	ILE	A					
+178	SER	A					
+179	TYR	A					
+180	ALA	A	1	26.79	0.876	133	69
+181	SER	A					
+182	THR	A	1	26.79	0.876	133	69
+183	ALA	A					
+184	PRO	A	8	1.29	0.012	21	13
+185	ASP	A					
+186	LEU	A					
+187	SER	A	8	1.29	0.012	21	13
+188	ASP	A					
+189	ASN	A					
+190	SER	A					
+191	ARG	A					
+192	TYR	A					
+193	ASP	A					
+194	PHE	A					
+195	PHE	A					
+196	SER	A					
+197	ARG	A					
+198	VAL	A	5	2.19	0.043	31	21
+199	VAL	A					
+200	PRO	A	5	2.19	0.043	31	21
+201	SER	A	8	1.29	0.012	21	13
+202	ASP	A					
+203	THR	A	8	1.29	0.012	21	13
+204	TYR	A	8	1.29	0.012	21	13
+205	GLN	A					
+206	ALA	A					
+207	GLN	A					
+208	ALA	A					
+209	MET	A					
+210	VAL	A					
+211	ASP	A					
+212	ILE	A					
+213	VAL	A					
+214	ARG	A					
+215	ALA	A					
+216	LEU	A					
+217	LYS	A					
+218	TRP	A					
+219	ASN	A					
+220	TYR	A	6	2.04	0.037	40	23
+221	VAL	A					
+222	SER	A					
+223	THR	A					
+224	VAL	A					
+225	ALA	A					
+226	SER	A	1	26.79	0.876	133	69
+227	GLU	A	1	26.79	0.876	133	69
+228	GLY	A	1	26.79	0.876	133	69
+229	SER	A	1	26.79	0.876	133	69
+230	TYR	A	1	26.79	0.876	133	69
+231	GLY	A	1	26.79	0.876	133	69
+232	GLU	A					
+233	SER	A					
+234	GLY	A					
+235	VAL	A					
+236	GLU	A					
+237	ALA	A					
+238	PHE	A					
+239	ILE	A					
+240	GLN	A					
+241	LYS	A					
+242	SER	A					
+243	ARG	A					
+244	GLU	A					
+245	ASP	A					
+246	GLY	A					
+247	GLY	A					
+248	VAL	A					
+249	CYS	A					
+250	ILE	A					
+251	ALA	A					
+252	GLN	A					
+253	SER	A					
+254	VAL	A					
+255	LYS	A					
+256	ILE	A					
+257	PRO	A					
+258	ARG	A	1	26.79	0.876	133	69
+259	GLU	A					
+260	PRO	A					
+261	LYS	A					
+262	ALA	A					
+263	GLY	A					
+264	GLU	A					
+265	PHE	A					
+266	ASP	A					
+267	LYS	A					
+268	ILE	A					
+269	ILE	A					
+270	ARG	A					
+271	ARG	A					
+272	LEU	A					
+273	LEU	A					
+274	GLU	A					
+275	THR	A	6	2.04	0.037	40	23
+276	SER	A	6	2.04	0.037	40	23
+277	ASN	A	6	2.04	0.037	40	23
+278	ALA	A					
+279	ARG	A					
+280	ALA	A					
+281	VAL	A					
+282	ILE	A					
+283	ILE	A					
+284	PHE	A					
+285	ALA	A					
+286	ASN	A	1	26.79	0.876	133	69
+287	GLU	A	1	26.79	0.876	133	69
+288	ASP	A	1	26.79	0.876	133	69
+289	ASP	A					
+290	ILE	A					
+291	ARG	A					
+292	ARG	A					
+293	VAL	A					
+294	LEU	A					
+295	GLU	A					
+296	ALA	A					
+297	ALA	A					
+298	ARG	A					
+299	ARG	A					
+300	ALA	A					
+301	ASN	A					
+302	GLN	A					
+303	THR	A					
+304	GLY	A					
+305	HIS	A					
+306	PHE	A					
+307	PHE	A					
+308	TRP	A					
+309	MET	A					
+310	GLY	A					
+311	SER	A					
+312	ASP	A	1	26.79	0.876	133	69
+313	SER	A	1	26.79	0.876	133	69
+314	TRP	A					
+315	GLY	A					
+316	SER	A					
+317	LYS	A	1	26.79	0.876	133	69
+318	ILE	A					
+319	ALA	A					
+320	PRO	A					
+321	VAL	A					
+322	LEU	A					
+323	HIS	A					
+324	LEU	A					
+325	GLU	A					
+326	GLU	A					
+327	VAL	A					
+328	ALA	A					
+329	GLU	A					
+330	GLY	A					
+331	ALA	A					
+332	VAL	A					
+333	THR	A					
+334	ILE	A					
+335	LEU	A					
+336	PRO	A					
+337	LYS	A	5	2.19	0.043	31	21
+338	ARG	A					
+339	MET	A					
+340	SER	A					
+341	VAL	A					
+342	ARG	A					
+343	GLY	A					
+344	PHE	A					
+345	ASP	A					
+346	ARG	A					
+347	TYR	A					
+348	PHE	A					
+349	SER	A					
+350	SER	A					
+351	ARG	A					
+352	THR	A					
+353	LEU	A					
+354	ASP	A					
+355	ASN	A					
+356	ASN	A					
+357	ARG	A					
+358	ARG	A					
+359	ASN	A					
+360	ILE	A					
+361	TRP	A	2	12.19	0.556	86	35
+362	PHE	A					
+363	ALA	A					
+364	GLU	A	2	12.19	0.556	86	35
+365	PHE	A					
+366	TRP	A					
+367	GLU	A					
+368	ASP	A					
+369	ASN	A					
+370	PHE	A					
+371	HIS	A					
+372	CYS	A					
+373	LYS	A					
+374	LEU	A					
+375	SER	A					
+376	ARG	A					
+377	HIS	A					
+378	ALA	A					
+379	LEU	A					
+380	LYS	A					
+381	LYS	A					
+382	GLY	A					
+383	SER	A					
+384	HIS	A					
+385	VAL	A					
+386	LYS	A					
+387	LYS	A					
+388	CYS	A					
+389	THR	A					
+390	ASN	A					
+391	ARG	A					
+392	GLU	A					
+393	ARG	A					
+394	ILE	A					
+395	GLY	A					
+396	GLN	A					
+397	ASP	A					
+398	SER	A					
+399	ALA	A					
+400	TYR	A					
+401	GLU	A					
+402	GLN	A					
+403	GLU	A	1	26.79	0.876	133	69
+404	GLY	A					
+405	LYS	A	1	26.79	0.876	133	69
+406	VAL	A					
+407	GLN	A	5	2.19	0.043	31	21
+408	PHE	A	5	2.19	0.043	31	21
+409	VAL	A					
+410	ILE	A					
+411	ASP	A	5	2.19	0.043	31	21
+412	ALA	A					
+413	VAL	A					
+414	TYR	A	10	0.86	0.003	26	13
+415	ALA	A					
+416	MET	A					
+417	GLY	A					
+418	HIS	A	10	0.86	0.003	26	13
+419	ALA	A					
+420	LEU	A					
+421	HIS	A					
+422	ALA	A					
+423	MET	A					
+424	HIS	A					
+425	ARG	A					
+426	ASP	A					
+427	LEU	A					
+428	CYS	A					
+429	PRO	A					
+430	GLY	A					
+431	ARG	A					
+432	VAL	A					
+433	GLY	A					
+434	LEU	A					
+435	CYS	A					
+436	PRO	A					
+437	ARG	A					
+438	MET	A					
+439	ASP	A					
+440	PRO	A					
+441	VAL	A					
+442	ASP	A					
+443	GLY	A					
+444	THR	A					
+445	GLN	A					
+446	LEU	A					
+447	LEU	A					
+448	LYS	A					
+449	TYR	A					
+450	ILE	A					
+451	ARG	A					
+452	ASN	A					
+453	VAL	A					
+454	ASN	A					
+455	PHE	A					
+456	SER	A	10	0.86	0.003	26	13
+457	GLY	A	10	0.86	0.003	26	13
+458	ILE	A	10	0.86	0.003	26	13
+459	ALA	A					
+460	GLY	A					
+461	ASN	A	5	2.19	0.043	31	21
+462	PRO	A	5	2.19	0.043	31	21
+463	VAL	A	5	2.19	0.043	31	21
+464	THR	A					
+465	PHE	A					
+466	ASN	A	8	1.29	0.012	21	13
+467	GLU	A					
+468	ASN	A	8	1.29	0.012	21	13
+469	GLY	A					
+470	ASP	A	8	1.29	0.012	21	13
+471	ALA	A	5	2.19	0.043	31	21
+472	PRO	A	5	2.19	0.043	31	21
+473	GLY	A					
+474	ARG	A	5	2.19	0.043	31	21
+475	TYR	A					
+476	ASP	A					
+477	ILE	A					
+478	TYR	A					
+479	GLN	A					
+480	TYR	A					
+481	GLN	A					
+482	LEU	A					
+483	ARG	A					
+484	ASN	A					
+485	ASP	A					
+486	SER	A					
+487	ALA	A					
+488	GLU	A					
+489	TYR	A					
+490	LYS	A					
+491	VAL	A					
+492	ILE	A					
+493	GLY	A					
+494	SER	A					
+495	TRP	A					
+496	THR	A					
+497	ASP	A					
+498	HIS	A					
+499	LEU	A					
+500	HIS	A					
+501	LEU	A					
+502	ARG	A					
+503	ILE	A					
+504	GLU	A					
+505	ARG	A					
+506	MET	A					
+507	HIS	A					
+508	TRP	A					
+509	PRO	A					
+510	GLY	A					
+511	SER	A					
+512	GLY	A					
+513	GLN	A					
+514	GLN	A					
+515	LEU	A					
+516	PRO	A					
+517	ARG	A					
+518	SER	A					
+519	ILE	A					
+520	CYS	A	6	2.04	0.037	40	23
+521	SER	A	6	2.04	0.037	40	23
+522	LEU	A					
+523	PRO	A					
+524	CYS	A					
+525	GLN	A					
+526	PRO	A					
+527	GLY	A					
+528	GLU	A					
+529	ARG	A					
+530	LYS	A					
+531	LYS	A					
+532	THR	A					
+533	VAL	A	6	2.04	0.037	40	23
+534	LYS	A					
+535	GLY	A					
+536	MET	A	6	2.04	0.037	40	23
+537	PRO	A					
+538	CYS	A					
+539	CYS	A	6	2.04	0.037	40	23
+540	TRP	A	6	2.04	0.037	40	23
+541	HIS	A	6	2.04	0.037	40	23
+542	CYS	A					
+543	GLU	A					
+544	PRO	A					
+545	CYS	A					
+546	THR	A					
+547	GLY	A					
+548	TYR	A					
+549	GLN	A					
+550	TYR	A					
+551	GLN	A					
+552	VAL	A					
+553	ASP	A					
+554	ARG	A					
+555	TYR	A					
+556	THR	A					
+557	CYS	A					
+558	LYS	A					
+559	THR	A					
+560	CYS	A					
+561	PRO	A					
+562	TYR	A					
+563	ASP	A					
+564	MET	A					
+565	ARG	A					
+566	PRO	A					
+567	THR	A					
+568	GLU	A					
+569	ASN	A					
+570	ARG	A					
+571	THR	A					
+572	GLY	A					
+573	CYS	A					
+574	ARG	A					
+575	PRO	A					
+576	ILE	A					
+577	PRO	A					
+578	ILE	A					
+579	ILE	A					
+580	LYS	A					
+581	LEU	A	3	11.01	0.508	75	45
+582	GLU	A					
+583	TRP	A					
+584	GLY	A					
+585	SER	A					
+586	PRO	A					
+587	TRP	A					
+588	ALA	A					
+589	VAL	A					
+590	LEU	A					
+591	PRO	A					
+592	LEU	A					
+593	PHE	A					
+594	LEU	A	9	1.24	0.010	19	14
+595	ALA	A					
+596	VAL	A					
+597	VAL	A	9	1.24	0.010	19	14
+598	GLY	A	9	1.24	0.010	19	14
+599	ILE	A					
+600	ALA	A					
+601	ALA	A	9	1.24	0.010	19	14
+602	THR	A					
+603	LEU	A					
+604	PHE	A					
+605	VAL	A					
+606	VAL	A					
+607	ILE	A					
+608	THR	A					
+609	PHE	A					
+610	VAL	A					
+611	ARG	A					
+612	TYR	A					
+613	ASN	A					
+614	ASP	A					
+615	THR	A					
+616	PRO	A					
+617	ILE	A					
+618	VAL	A					
+619	LYS	A					
+620	ALA	A					
+621	SER	A					
+622	GLY	A					
+623	ARG	A					
+624	GLU	A					
+625	LEU	A					
+626	SER	A					
+627	TYR	A					
+628	VAL	A					
+629	LEU	A					
+630	LEU	A					
+631	ALA	A					
+632	GLY	A					
+633	ILE	A	7	1.77	0.027	8	12
+634	PHE	A					
+635	LEU	A					
+636	CYS	A	7	1.77	0.027	8	12
+637	TYR	A					
+638	ALA	A					
+639	THR	A					
+640	THR	A					
+641	PHE	A					
+642	LEU	A					
+643	MET	A	3	11.01	0.508	75	45
+644	ILE	A					
+645	ALA	A					
+646	GLU	A					
+647	PRO	A	3	11.01	0.508	75	45
+648	ASP	A					
+649	LEU	A					
+650	GLY	A					
+651	THR	A					
+652	CYS	A					
+653	SER	A					
+654	LEU	A					
+655	ARG	A	3	11.01	0.508	75	45
+656	ARG	A	3	11.01	0.508	75	45
+657	ILE	A					
+658	PHE	A					
+659	LEU	A	3	11.01	0.508	75	45
+660	GLY	A					
+661	LEU	A					
+662	GLY	A					
+663	MET	A					
+664	SER	A					
+665	ILE	A					
+666	SER	A	7	1.77	0.027	8	12
+667	TYR	A	7	1.77	0.027	8	12
+668	ALA	A					
+669	ALA	A					
+670	LEU	A					
+671	LEU	A					
+672	THR	A					
+673	LYS	A					
+674	THR	A					
+675	ASN	A					
+676	ARG	A					
+677	ILE	A					
+678	TYR	A					
+679	ARG	A					
+680	ILE	A					
+681	PHE	A					
+682	GLU	A					
+683	GLN	A					
+684	GLY	A					
+685	LYS	A					
+686	ARG	A					
+687	SER	A					
+688	VAL	A					
+689	SER	A					
+690	ALA	A					
+691	PRO	A					
+692	ARG	A					
+693	PHE	A					
+694	ILE	A					
+695	SER	A					
+696	PRO	A					
+697	ALA	A					
+698	SER	A					
+699	GLN	A					
+700	LEU	A					
+701	ALA	A					
+702	ILE	A					
+703	THR	A					
+704	PHE	A					
+705	SER	A					
+706	LEU	A					
+707	ILE	A					
+708	SER	A					
+709	LEU	A					
+710	GLN	A					
+711	LEU	A					
+712	LEU	A					
+713	GLY	A					
+714	ILE	A					
+715	CYS	A					
+716	VAL	A					
+717	TRP	A					
+718	PHE	A					
+719	VAL	A					
+720	VAL	A					
+721	ASP	A					
+722	PRO	A					
+723	SER	A					
+724	HIS	A					
+725	SER	A					
+726	VAL	A					
+727	VAL	A					
+728	ASP	A					
+729	PHE	A					
+730	GLN	A					
+731	ASP	A	3	11.01	0.508	75	45
+732	GLN	A					
+733	ARG	A					
+734	THR	A					
+735	LEU	A					
+736	ASP	A					
+737	PRO	A					
+738	ARG	A					
+739	PHE	A					
+740	ALA	A					
+741	ARG	A					
+742	GLY	A					
+743	VAL	A	3	11.01	0.508	75	45
+744	LEU	A					
+745	LYS	A	3	11.01	0.508	75	45
+746	CYS	A	3	11.01	0.508	75	45
+747	ASP	A					
+748	ILE	A	3	11.01	0.508	75	45
+749	SER	A					
+750	ASP	A	3	11.01	0.508	75	45
+751	LEU	A					
+752	SER	A					
+753	LEU	A	3	11.01	0.508	75	45
+754	ILE	A	4	5.04	0.189	33	24
+755	CYS	A					
+756	LEU	A					
+757	LEU	A	4	5.04	0.189	33	24
+758	GLY	A	4	5.04	0.189	33	24
+759	TYR	A					
+760	SER	A					
+761	MET	A	4	5.04	0.189	33	24
+762	LEU	A					
+763	LEU	A					
+764	MET	A					
+765	VAL	A					
+766	THR	A					
+767	CYS	A					
+768	THR	A					
+769	VAL	A					
+770	TYR	A					
+771	ALA	A					
+772	ILE	A					
+773	LYS	A					
+774	THR	A					
+775	ARG	A					
+776	GLY	A					
+777	VAL	A					
+778	PRO	A					
+779	GLU	A					
+780	THR	A					
+781	PHE	A					
+782	ASN	A					
+783	GLU	A					
+784	ALA	A					
+785	LYS	A					
+786	PRO	A					
+787	ILE	A					
+788	GLY	A					
+789	PHE	A					
+790	THR	A					
+791	MET	A					
+792	TYR	A					
+793	THR	A					
+794	THR	A					
+795	CYS	A					
+796	ILE	A					
+797	VAL	A					
+798	TRP	A	4	5.04	0.189	33	24
+799	LEU	A					
+800	ALA	A					
+801	PHE	A	4	5.04	0.189	33	24
+802	ILE	A	4	5.04	0.189	33	24
+803	PRO	A					
+804	ILE	A					
+805	PHE	A	3	11.01	0.508	75	45
+806	PHE	A	4	5.04	0.189	33	24
+807	GLY	A					
+808	THR	A					
+809	SER	A					
+810	GLN	A					
+811	SER	A					
+812	ALA	A					
+813	ASP	A					
+814	LYS	A	3	11.01	0.508	75	45
+815	LEU	A	3	11.01	0.508	75	45
+816	TYR	A					
+817	ILE	A					
+818	GLN	A	3	11.01	0.508	75	45
+819	THR	A	3	11.01	0.508	75	45
+820	THR	A					
+821	THR	A					
+822	LEU	A	3	11.01	0.508	75	45
+823	THR	A					
+824	VAL	A					
+825	SER	A					
+826	VAL	A					
+827	SER	A					
+828	LEU	A					
+829	SER	A	7	1.77	0.027	8	12
+830	ALA	A	7	1.77	0.027	8	12
+831	SER	A	9	1.24	0.010	19	14
+832	VAL	A					
+833	SER	A	7	1.77	0.027	8	12
+834	LEU	A	9	1.24	0.010	19	14
+835	GLY	A	9	1.24	0.010	19	14
+836	MET	A					
+837	LEU	A					
+838	TYR	A					
+839	MET	A	9	1.24	0.010	19	14
+840	PRO	A					
+841	LYS	A					
+842	VAL	A					
+843	TYR	A					
+844	ILE	A					
+845	ILE	A					
+846	LEU	A					
+847	PHE	A					
+848	HIS	A					
+849	PRO	A					
+850	GLU	A					
+851	GLN	A					
+852	ASN	A					
+853	VAL	A					
+854	PRO	A					
+855	LYS	A					
+856	ARG	A					
+857	LYS	A					
+858	ARG	A					
+859	SER	A					
+860	LEU	A					
+861	LYS	A					
+862	ALA	A					
+863	VAL	A					
+864	VAL	A					
+865	THR	A					
+866	ALA	A					
+867	ALA	A					
+868	THR	A					
+869	MET	A					
+870	SER	A					
+871	ASN	A					
+872	LYS	A					
+873	PHE	A					
+874	THR	A					
+875	GLN	A					
+876	LYS	A					
+877	GLY	A					
+878	ASN	A					
+879	PHE	A					
+880	ARG	A					
+881	PRO	A					
+882	ASN	A					
+883	GLY	A					
+884	GLU	A					
+885	ALA	A					
+886	LYS	A					
+887	SER	A					
+888	GLU	A					
+889	LEU	A					
+890	CYS	A					
+891	GLU	A					
+892	ASN	A					
+893	LEU	A					
+894	GLU	A					
+895	ALA	A					
+896	PRO	A					
+897	ALA	A					
+898	LEU	A					
+899	ALA	A					
+900	THR	A					
+901	LYS	A					
+902	GLN	A					
+903	THR	A					
+904	TYR	A					
+905	VAL	A					
+906	THR	A					
+907	TYR	A					
+908	THR	A					
+909	ASN	A					
+910	HIS	A					
+911	ALA	A					
+912	ILE	A					
