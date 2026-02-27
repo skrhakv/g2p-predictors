@@ -1,15 +1,12 @@
 import argparse
 import os
 import csv
-import numpy as np
 
 def main(path):
     for file in os.listdir(path):
         if not file.endswith("_residues.csv"):
             continue
         
-        uniprot_id = file.split("-")[1]
-
         # load pocket info
         pocket_info = {}
         with open(os.path.join(path, file.replace('_residues.csv', '_predictions.csv')), 'r') as f:
@@ -29,7 +26,7 @@ def main(path):
                 }
 
         with open(os.path.join(path, file), 'r') as f:
-            with open(os.path.join(path, f'{uniprot_id}.txt'), 'w') as f_pred:
+            with open(os.path.join(path, f'{file.replace(".pdb_residues.csv", ".txt")}'), 'w') as f_pred:
                 # write header
                 f_pred.write("residue_number\tamino_acid\tchain\tpocket_rank\tpocket_score\tpocket_probability\tpocket_sas_points_count\tpocket_surf_atoms_count\n")
 

@@ -1,4 +1,4 @@
-residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pocket_sas_points	pocket_surf_atoms
+residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pocket_sas_points_count	pocket_surf_atoms_count
 1	MET	A					
 2	PRO	A					
 3	GLY	A					

@@ -4,9 +4,11 @@ import numpy as np
 from colabdesign import mk_afdesign_model
 import jax, pickle
 from scipy.special import expit as sigmoid
+import gc
 
 MASK_SIDECHAINS = True
 MASK_SEQUENCE = False
+MAX_RESIDUES_COUNT = 2190 # this is the maximum number of residues that can be processed without OOM error (experimentally determined)
 
 def af2bind(outputs, mask_sidechains=True, seed=0):
     pair_A = outputs["representations"]["pair"][:-20,-20:]
@@ -49,8 +51,8 @@ def predict(af_model, pdb_path, chain_id):
     r_idx = af_model._inputs["residue_index"][-20] + (1 + np.arange(20)) * 50
     af_model._inputs["residue_index"][-20:] = r_idx.flatten()
     
-    if af_model._inputs["aatype"].shape[0] >= 2221:
-        print(f'Error: {pdb_path} chain {chain_id} has more than 2221 residues, which would cause OOM error.')
+    if af_model._inputs["aatype"].shape[0] >= MAX_RESIDUES_COUNT:
+        print(f'Error: {pdb_path} chain {chain_id} has more than {MAX_RESIDUES_COUNT} residues, which would cause OOM error.')
         return None
     
     print(f"Predicting binding for {pdb_path} chain {chain_id}, size {af_model._inputs['aatype'].shape}...")
@@ -66,13 +68,33 @@ def predict(af_model, pdb_path, chain_id):
 
 ###### End of adapted code ######
 
-
 import argparse
 import os
+from biotite.structure.io.pdb import PDBFile, get_structure
+from biotite.structure import get_residues
+
+def save_predictions(pred_bind, output_path, pdb_filepath, chain_id):
+    with open(output_path, 'w') as f_pred:
+        f_pred.write("residue_number\tamino_acid\tchain\tp_bind\n")
+        
+        # load PDB and get residue info
+        pdb_file = PDBFile.read(pdb_filepath)    
+        protein = get_structure(pdb_file, model=1)
+        residue_ids, residue_types = get_residues(protein)
+        
+        assert len(residue_ids) == len(pred_bind), f"Length mismatch for {pdb_filepath}: {len(residue_ids)} residues vs {len(pred_bind)} predictions"
+
+        # loop through residues (ids and types) and write their predicted binding probabilities to the output file
+        for res_id, res_name, p in zip(residue_ids, residue_types, pred_bind):
+            f_pred.write(f"{res_id}\t{res_name}\t{chain_id}\t{p:.4f}\n")
+    
+    return pred_bind
 
 def main(input_path, output_path):
+    model = load_model()
+
     for file in os.listdir(input_path):
-        output_filename = file.replace(".pdb", ".npy")
+        output_filename = file.replace(".pdb", ".txt")
         if not file.endswith(".pdb"):
             continue
         if output_filename in os.listdir(output_path):
@@ -82,15 +104,16 @@ def main(input_path, output_path):
 
         print(f"Processing {input_path_file}...")
 
-        model = load_model()
-
 # ----> CAUTION: the chain ID needs to be changed if the structure is not AlphaFold output
         chain_id = "A"
+        gc.collect()
+        # K.clear_session()
+
         predictions = predict(model, input_path_file, chain_id)
         if predictions is None: # this might happen if there was an error processing the PDB
             continue
-
-        np.save(os.path.join(output_path, output_filename), predictions)
+        
+        save_predictions(predictions, os.path.join(output_path, output_filename), input_path_file, chain_id)
 
 
 if __name__ == "__main__":

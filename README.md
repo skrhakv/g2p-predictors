@@ -25,7 +25,7 @@ where `<FULL-INPUT-PATH>` contains all `.pdb` files for the prediction.
 ## Configuration
 Currently, both P2Rank and AF2bind are configured for AlphaFold-predicted structures. For predicting on the experimental PDB structures, the following steps must be conducted:
 1. the `-c alphafold` parameter must be removed when running P2Rank (see `p2rank/run-docker.sh`).
-2. the correct chain ID needs to be selected in the `AF2Bind/src/run.py` script.
+2. the correct chain ID needs to be selected in the `AF2Bind/src/run.py` script (for now, chain A is hard coded).
 
 
 ## Future work

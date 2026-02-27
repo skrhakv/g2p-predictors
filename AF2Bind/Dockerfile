@@ -31,5 +31,8 @@ RUN python3.12 -m pip install "jax[cuda]==0.7" -f https://storage.googleapis.com
     && mkdir params \
     && tar -xf alphafold_params_2021-07-14.tar -C params
 
+# install biotite for post-processing
+RUN python3.12 -m pip install biotite
+
 # copy source code
 COPY ./src /opt/af2bind
