@@ -2,6 +2,11 @@
 This repository summarizes the steps needed for running P2Rank and AF2Bind binding site predictors in Docker. The output of these tools is subsequently used by the G2P portal. While P2Rank accepts both *mmCIF* and *PDB*, AF2Bind accepts only the *PDB* file format.
 
 ## P2Rank
+First you need to install the biotite package which is used in the post-processing phase:
+```
+python3 -m pip install biotite
+```
+
 Deployment of docker with P2Rank is done summarized in `p2rank/run-docker.sh` script. Two parameters need to be provided: 
 ```
 sudo bash run-docker.sh <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>

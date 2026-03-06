@@ -1,4 +1,4 @@
-residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pocket_sas_points_count	pocket_surf_atoms_count
+residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	mean_pLDDT
 1	MET	A					
 2	PRO	A					
 3	GLY	A					
@@ -37,9 +37,9 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 36	GLY	A					
 37	HIS	A					
 38	PRO	A					
-39	HIS	A	2	12.19	0.556	86	35
-40	MET	A	2	12.19	0.556	86	35
-41	ASN	A	2	12.19	0.556	86	35
+39	HIS	A	2	12.19	0.56	84.11
+40	MET	A	2	12.19	0.56	84.11
+41	ASN	A	2	12.19	0.56	84.11
 42	SER	A					
 43	ILE	A					
 44	ARG	A					
@@ -54,29 +54,29 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 53	GLY	A					
 54	LEU	A					
 55	PHE	A					
-56	PRO	A	1	26.79	0.876	133	69
+56	PRO	A	1	26.79	0.88	88.34
 57	VAL	A					
-58	HIS	A	2	12.19	0.556	86	35
+58	HIS	A	2	12.19	0.56	84.11
 59	GLY	A					
-60	ARG	A	1	26.79	0.876	133	69
+60	ARG	A	1	26.79	0.88	88.34
 61	GLY	A					
 62	SER	A					
 63	GLU	A					
 64	GLY	A					
 65	LYS	A					
-66	PRO	A	2	12.19	0.556	86	35
-67	CYS	A	2	12.19	0.556	86	35
-68	GLY	A	2	12.19	0.556	86	35
+66	PRO	A	2	12.19	0.56	84.11
+67	CYS	A	2	12.19	0.56	84.11
+68	GLY	A	2	12.19	0.56	84.11
 69	GLU	A					
 70	LEU	A					
-71	LYS	A	1	26.79	0.876	133	69
+71	LYS	A	1	26.79	0.88	88.34
 72	LYS	A					
 73	GLU	A					
-74	LYS	A	1	26.79	0.876	133	69
+74	LYS	A	1	26.79	0.88	88.34
 75	GLY	A					
 76	ILE	A					
 77	HIS	A					
-78	ARG	A	1	26.79	0.876	133	69
+78	ARG	A	1	26.79	0.88	88.34
 79	LEU	A					
 80	GLU	A					
 81	ALA	A					
@@ -86,14 +86,14 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 85	ALA	A					
 86	LEU	A					
 87	ASP	A					
-88	ARG	A	10	0.86	0.003	26	13
+88	ARG	A	10	0.86	0.00	91.30
 89	ILE	A					
 90	ASN	A					
 91	ASN	A					
-92	ASP	A	10	0.86	0.003	26	13
+92	ASP	A	10	0.86	0.00	91.30
 93	PRO	A					
 94	ASP	A					
-95	LEU	A	10	0.86	0.003	26	13
+95	LEU	A	10	0.86	0.00	91.30
 96	LEU	A					
 97	PRO	A					
 98	ASN	A					
@@ -105,18 +105,18 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 104	ARG	A					
 105	ILE	A					
 106	LEU	A					
-107	ASP	A	2	12.19	0.556	86	35
-108	THR	A	1	26.79	0.876	133	69
+107	ASP	A	2	12.19	0.56	84.11
+108	THR	A	1	26.79	0.88	88.34
 109	CYS	A					
-110	SER	A	1	26.79	0.876	133	69
+110	SER	A	1	26.79	0.88	88.34
 111	ARG	A					
 112	ASP	A					
 113	THR	A					
-114	HIS	A	2	12.19	0.556	86	35
+114	HIS	A	2	12.19	0.56	84.11
 115	ALA	A					
 116	LEU	A					
 117	GLU	A					
-118	GLN	A	2	12.19	0.556	86	35
+118	GLN	A	2	12.19	0.56	84.11
 119	SER	A					
 120	LEU	A					
 121	THR	A					
@@ -155,11 +155,11 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 154	ILE	A					
 155	GLY	A					
 156	ALA	A					
-157	SER	A	1	26.79	0.876	133	69
-158	GLY	A	1	26.79	0.876	133	69
-159	SER	A	1	26.79	0.876	133	69
-160	SER	A	1	26.79	0.876	133	69
-161	VAL	A	1	26.79	0.876	133	69
+157	SER	A	1	26.79	0.88	88.34
+158	GLY	A	1	26.79	0.88	88.34
+159	SER	A	1	26.79	0.88	88.34
+160	SER	A	1	26.79	0.88	88.34
+161	VAL	A	1	26.79	0.88	88.34
 162	SER	A					
 163	ILE	A					
 164	MET	A					
@@ -178,14 +178,14 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 177	ILE	A					
 178	SER	A					
 179	TYR	A					
-180	ALA	A	1	26.79	0.876	133	69
+180	ALA	A	1	26.79	0.88	88.34
 181	SER	A					
-182	THR	A	1	26.79	0.876	133	69
+182	THR	A	1	26.79	0.88	88.34
 183	ALA	A					
-184	PRO	A	8	1.29	0.012	21	13
+184	PRO	A	8	1.29	0.01	92.96
 185	ASP	A					
 186	LEU	A					
-187	SER	A	8	1.29	0.012	21	13
+187	SER	A	8	1.29	0.01	92.96
 188	ASP	A					
 189	ASN	A					
 190	SER	A					
@@ -196,13 +196,13 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 195	PHE	A					
 196	SER	A					
 197	ARG	A					
-198	VAL	A	5	2.19	0.043	31	21
+198	VAL	A	5	2.19	0.04	93.15
 199	VAL	A					
-200	PRO	A	5	2.19	0.043	31	21
-201	SER	A	8	1.29	0.012	21	13
+200	PRO	A	5	2.19	0.04	93.15
+201	SER	A	8	1.29	0.01	92.96
 202	ASP	A					
-203	THR	A	8	1.29	0.012	21	13
-204	TYR	A	8	1.29	0.012	21	13
+203	THR	A	8	1.29	0.01	92.96
+204	TYR	A	8	1.29	0.01	92.96
 205	GLN	A					
 206	ALA	A					
 207	GLN	A					
@@ -218,18 +218,18 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 217	LYS	A					
 218	TRP	A					
 219	ASN	A					
-220	TYR	A	6	2.04	0.037	40	23
+220	TYR	A	6	2.04	0.04	90.48
 221	VAL	A					
 222	SER	A					
 223	THR	A					
 224	VAL	A					
 225	ALA	A					
-226	SER	A	1	26.79	0.876	133	69
-227	GLU	A	1	26.79	0.876	133	69
-228	GLY	A	1	26.79	0.876	133	69
-229	SER	A	1	26.79	0.876	133	69
-230	TYR	A	1	26.79	0.876	133	69
-231	GLY	A	1	26.79	0.876	133	69
+226	SER	A	1	26.79	0.88	88.34
+227	GLU	A	1	26.79	0.88	88.34
+228	GLY	A	1	26.79	0.88	88.34
+229	SER	A	1	26.79	0.88	88.34
+230	TYR	A	1	26.79	0.88	88.34
+231	GLY	A	1	26.79	0.88	88.34
 232	GLU	A					
 233	SER	A					
 234	GLY	A					
@@ -256,7 +256,7 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 255	LYS	A					
 256	ILE	A					
 257	PRO	A					
-258	ARG	A	1	26.79	0.876	133	69
+258	ARG	A	1	26.79	0.88	88.34
 259	GLU	A					
 260	PRO	A					
 261	LYS	A					
@@ -273,9 +273,9 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 272	LEU	A					
 273	LEU	A					
 274	GLU	A					
-275	THR	A	6	2.04	0.037	40	23
-276	SER	A	6	2.04	0.037	40	23
-277	ASN	A	6	2.04	0.037	40	23
+275	THR	A	6	2.04	0.04	90.48
+276	SER	A	6	2.04	0.04	90.48
+277	ASN	A	6	2.04	0.04	90.48
 278	ALA	A					
 279	ARG	A					
 280	ALA	A					
@@ -284,9 +284,9 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 283	ILE	A					
 284	PHE	A					
 285	ALA	A					
-286	ASN	A	1	26.79	0.876	133	69
-287	GLU	A	1	26.79	0.876	133	69
-288	ASP	A	1	26.79	0.876	133	69
+286	ASN	A	1	26.79	0.88	88.34
+287	GLU	A	1	26.79	0.88	88.34
+288	ASP	A	1	26.79	0.88	88.34
 289	ASP	A					
 290	ILE	A					
 291	ARG	A					
@@ -310,12 +310,12 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 309	MET	A					
 310	GLY	A					
 311	SER	A					
-312	ASP	A	1	26.79	0.876	133	69
-313	SER	A	1	26.79	0.876	133	69
+312	ASP	A	1	26.79	0.88	88.34
+313	SER	A	1	26.79	0.88	88.34
 314	TRP	A					
 315	GLY	A					
 316	SER	A					
-317	LYS	A	1	26.79	0.876	133	69
+317	LYS	A	1	26.79	0.88	88.34
 318	ILE	A					
 319	ALA	A					
 320	PRO	A					
@@ -335,7 +335,7 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 334	ILE	A					
 335	LEU	A					
 336	PRO	A					
-337	LYS	A	5	2.19	0.043	31	21
+337	LYS	A	5	2.19	0.04	93.15
 338	ARG	A					
 339	MET	A					
 340	SER	A					
@@ -359,10 +359,10 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 358	ARG	A					
 359	ASN	A					
 360	ILE	A					
-361	TRP	A	2	12.19	0.556	86	35
+361	TRP	A	2	12.19	0.56	84.11
 362	PHE	A					
 363	ALA	A					
-364	GLU	A	2	12.19	0.556	86	35
+364	GLU	A	2	12.19	0.56	84.11
 365	PHE	A					
 366	TRP	A					
 367	GLU	A					
@@ -401,22 +401,22 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 400	TYR	A					
 401	GLU	A					
 402	GLN	A					
-403	GLU	A	1	26.79	0.876	133	69
+403	GLU	A	1	26.79	0.88	88.34
 404	GLY	A					
-405	LYS	A	1	26.79	0.876	133	69
+405	LYS	A	1	26.79	0.88	88.34
 406	VAL	A					
-407	GLN	A	5	2.19	0.043	31	21
-408	PHE	A	5	2.19	0.043	31	21
+407	GLN	A	5	2.19	0.04	93.15
+408	PHE	A	5	2.19	0.04	93.15
 409	VAL	A					
 410	ILE	A					
-411	ASP	A	5	2.19	0.043	31	21
+411	ASP	A	5	2.19	0.04	93.15
 412	ALA	A					
 413	VAL	A					
-414	TYR	A	10	0.86	0.003	26	13
+414	TYR	A	10	0.86	0.00	91.30
 415	ALA	A					
 416	MET	A					
 417	GLY	A					
-418	HIS	A	10	0.86	0.003	26	13
+418	HIS	A	10	0.86	0.00	91.30
 419	ALA	A					
 420	LEU	A					
 421	HIS	A					
@@ -454,25 +454,25 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 453	VAL	A					
 454	ASN	A					
 455	PHE	A					
-456	SER	A	10	0.86	0.003	26	13
-457	GLY	A	10	0.86	0.003	26	13
-458	ILE	A	10	0.86	0.003	26	13
+456	SER	A	10	0.86	0.00	91.30
+457	GLY	A	10	0.86	0.00	91.30
+458	ILE	A	10	0.86	0.00	91.30
 459	ALA	A					
 460	GLY	A					
-461	ASN	A	5	2.19	0.043	31	21
-462	PRO	A	5	2.19	0.043	31	21
-463	VAL	A	5	2.19	0.043	31	21
+461	ASN	A	5	2.19	0.04	93.15
+462	PRO	A	5	2.19	0.04	93.15
+463	VAL	A	5	2.19	0.04	93.15
 464	THR	A					
 465	PHE	A					
-466	ASN	A	8	1.29	0.012	21	13
+466	ASN	A	8	1.29	0.01	92.96
 467	GLU	A					
-468	ASN	A	8	1.29	0.012	21	13
+468	ASN	A	8	1.29	0.01	92.96
 469	GLY	A					
-470	ASP	A	8	1.29	0.012	21	13
-471	ALA	A	5	2.19	0.043	31	21
-472	PRO	A	5	2.19	0.043	31	21
+470	ASP	A	8	1.29	0.01	92.96
+471	ALA	A	5	2.19	0.04	93.15
+472	PRO	A	5	2.19	0.04	93.15
 473	GLY	A					
-474	ARG	A	5	2.19	0.043	31	21
+474	ARG	A	5	2.19	0.04	93.15
 475	TYR	A					
 476	ASP	A					
 477	ILE	A					
@@ -518,8 +518,8 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 517	ARG	A					
 518	SER	A					
 519	ILE	A					
-520	CYS	A	6	2.04	0.037	40	23
-521	SER	A	6	2.04	0.037	40	23
+520	CYS	A	6	2.04	0.04	90.48
+521	SER	A	6	2.04	0.04	90.48
 522	LEU	A					
 523	PRO	A					
 524	CYS	A					
@@ -531,15 +531,15 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 530	LYS	A					
 531	LYS	A					
 532	THR	A					
-533	VAL	A	6	2.04	0.037	40	23
+533	VAL	A	6	2.04	0.04	90.48
 534	LYS	A					
 535	GLY	A					
-536	MET	A	6	2.04	0.037	40	23
+536	MET	A	6	2.04	0.04	90.48
 537	PRO	A					
 538	CYS	A					
-539	CYS	A	6	2.04	0.037	40	23
-540	TRP	A	6	2.04	0.037	40	23
-541	HIS	A	6	2.04	0.037	40	23
+539	CYS	A	6	2.04	0.04	90.48
+540	TRP	A	6	2.04	0.04	90.48
+541	HIS	A	6	2.04	0.04	90.48
 542	CYS	A					
 543	GLU	A					
 544	PRO	A					
@@ -579,7 +579,7 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 578	ILE	A					
 579	ILE	A					
 580	LYS	A					
-581	LEU	A	3	11.01	0.508	75	45
+581	LEU	A	3	11.01	0.51	86.41
 582	GLU	A					
 583	TRP	A					
 584	GLY	A					
@@ -592,14 +592,14 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 591	PRO	A					
 592	LEU	A					
 593	PHE	A					
-594	LEU	A	9	1.24	0.010	19	14
+594	LEU	A	9	1.24	0.01	94.05
 595	ALA	A					
 596	VAL	A					
-597	VAL	A	9	1.24	0.010	19	14
-598	GLY	A	9	1.24	0.010	19	14
+597	VAL	A	9	1.24	0.01	94.05
+598	GLY	A	9	1.24	0.01	94.05
 599	ILE	A					
 600	ALA	A					
-601	ALA	A	9	1.24	0.010	19	14
+601	ALA	A	9	1.24	0.01	94.05
 602	THR	A					
 603	LEU	A					
 604	PHE	A					
@@ -631,21 +631,21 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 630	LEU	A					
 631	ALA	A					
 632	GLY	A					
-633	ILE	A	7	1.77	0.027	8	12
+633	ILE	A	7	1.77	0.03	95.37
 634	PHE	A					
 635	LEU	A					
-636	CYS	A	7	1.77	0.027	8	12
+636	CYS	A	7	1.77	0.03	95.37
 637	TYR	A					
 638	ALA	A					
 639	THR	A					
 640	THR	A					
 641	PHE	A					
 642	LEU	A					
-643	MET	A	3	11.01	0.508	75	45
+643	MET	A	3	11.01	0.51	86.41
 644	ILE	A					
 645	ALA	A					
 646	GLU	A					
-647	PRO	A	3	11.01	0.508	75	45
+647	PRO	A	3	11.01	0.51	86.41
 648	ASP	A					
 649	LEU	A					
 650	GLY	A					
@@ -653,19 +653,19 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 652	CYS	A					
 653	SER	A					
 654	LEU	A					
-655	ARG	A	3	11.01	0.508	75	45
-656	ARG	A	3	11.01	0.508	75	45
+655	ARG	A	3	11.01	0.51	86.41
+656	ARG	A	3	11.01	0.51	86.41
 657	ILE	A					
 658	PHE	A					
-659	LEU	A	3	11.01	0.508	75	45
+659	LEU	A	3	11.01	0.51	86.41
 660	GLY	A					
 661	LEU	A					
 662	GLY	A					
 663	MET	A					
 664	SER	A					
 665	ILE	A					
-666	SER	A	7	1.77	0.027	8	12
-667	TYR	A	7	1.77	0.027	8	12
+666	SER	A	7	1.77	0.03	95.37
+667	TYR	A	7	1.77	0.03	95.37
 668	ALA	A					
 669	ALA	A					
 670	LEU	A					
@@ -729,7 +729,7 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 728	ASP	A					
 729	PHE	A					
 730	GLN	A					
-731	ASP	A	3	11.01	0.508	75	45
+731	ASP	A	3	11.01	0.51	86.41
 732	GLN	A					
 733	ARG	A					
 734	THR	A					
@@ -741,25 +741,25 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 740	ALA	A					
 741	ARG	A					
 742	GLY	A					
-743	VAL	A	3	11.01	0.508	75	45
+743	VAL	A	3	11.01	0.51	86.41
 744	LEU	A					
-745	LYS	A	3	11.01	0.508	75	45
-746	CYS	A	3	11.01	0.508	75	45
+745	LYS	A	3	11.01	0.51	86.41
+746	CYS	A	3	11.01	0.51	86.41
 747	ASP	A					
-748	ILE	A	3	11.01	0.508	75	45
+748	ILE	A	3	11.01	0.51	86.41
 749	SER	A					
-750	ASP	A	3	11.01	0.508	75	45
+750	ASP	A	3	11.01	0.51	86.41
 751	LEU	A					
 752	SER	A					
-753	LEU	A	3	11.01	0.508	75	45
-754	ILE	A	4	5.04	0.189	33	24
+753	LEU	A	3	11.01	0.51	86.41
+754	ILE	A	4	5.04	0.19	88.36
 755	CYS	A					
 756	LEU	A					
-757	LEU	A	4	5.04	0.189	33	24
-758	GLY	A	4	5.04	0.189	33	24
+757	LEU	A	4	5.04	0.19	88.36
+758	GLY	A	4	5.04	0.19	88.36
 759	TYR	A					
 760	SER	A					
-761	MET	A	4	5.04	0.189	33	24
+761	MET	A	4	5.04	0.19	88.36
 762	LEU	A					
 763	LEU	A					
 764	MET	A					
@@ -796,15 +796,15 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 795	CYS	A					
 796	ILE	A					
 797	VAL	A					
-798	TRP	A	4	5.04	0.189	33	24
+798	TRP	A	4	5.04	0.19	88.36
 799	LEU	A					
 800	ALA	A					
-801	PHE	A	4	5.04	0.189	33	24
-802	ILE	A	4	5.04	0.189	33	24
+801	PHE	A	4	5.04	0.19	88.36
+802	ILE	A	4	5.04	0.19	88.36
 803	PRO	A					
 804	ILE	A					
-805	PHE	A	3	11.01	0.508	75	45
-806	PHE	A	4	5.04	0.189	33	24
+805	PHE	A	3	11.01	0.51	86.41
+806	PHE	A	4	5.04	0.19	88.36
 807	GLY	A					
 808	THR	A					
 809	SER	A					
@@ -812,32 +812,32 @@ residue_number	amino_acid	chain	pocket_rank	pocket_score	pocket_probability	pock
 811	SER	A					
 812	ALA	A					
 813	ASP	A					
-814	LYS	A	3	11.01	0.508	75	45
-815	LEU	A	3	11.01	0.508	75	45
+814	LYS	A	3	11.01	0.51	86.41
+815	LEU	A	3	11.01	0.51	86.41
 816	TYR	A					
 817	ILE	A					
-818	GLN	A	3	11.01	0.508	75	45
-819	THR	A	3	11.01	0.508	75	45
+818	GLN	A	3	11.01	0.51	86.41
+819	THR	A	3	11.01	0.51	86.41
 820	THR	A					
 821	THR	A					
-822	LEU	A	3	11.01	0.508	75	45
+822	LEU	A	3	11.01	0.51	86.41
 823	THR	A					
 824	VAL	A					
 825	SER	A					
 826	VAL	A					
 827	SER	A					
 828	LEU	A					
-829	SER	A	7	1.77	0.027	8	12
-830	ALA	A	7	1.77	0.027	8	12
-831	SER	A	9	1.24	0.010	19	14
+829	SER	A	7	1.77	0.03	95.37
+830	ALA	A	7	1.77	0.03	95.37
+831	SER	A	9	1.24	0.01	94.05
 832	VAL	A					
-833	SER	A	7	1.77	0.027	8	12
-834	LEU	A	9	1.24	0.010	19	14
-835	GLY	A	9	1.24	0.010	19	14
+833	SER	A	7	1.77	0.03	95.37
+834	LEU	A	9	1.24	0.01	94.05
+835	GLY	A	9	1.24	0.01	94.05
 836	MET	A					
 837	LEU	A					
 838	TYR	A					
-839	MET	A	9	1.24	0.010	19	14
+839	MET	A	9	1.24	0.01	94.05
 840	PRO	A					
 841	LYS	A					
 842	VAL	A					
