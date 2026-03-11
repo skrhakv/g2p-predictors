@@ -24,9 +24,11 @@ RUN apt update -y && apt upgrade -y && \
 # install biotite for post-processing
 RUN python3.12 -m pip install biotite pandas
 
+# copy source code
+COPY ./src /opt/af2bind
+
+# force re-downloading the data
+ARG CACHEBUST=1 
 RUN wget https://zenodo.org/records/17683380/files/analysis_files.tar.gz?download=1 -O analysis_files.tar.gz && \
     tar -xzf analysis_files.tar.gz && \
     rm analysis_files.tar.gz
-
-# copy source code
-COPY ./src /opt/af2bind

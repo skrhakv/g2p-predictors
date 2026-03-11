@@ -9,10 +9,7 @@ if [ ! -d "$INPUT_PATH" ] ; then
     exit 1
 fi
 
-# build docker image (skip if exists)
-if ! sudo docker image inspect af2bind &> /dev/null; then
-  sudo docker build -t af2bind -f ./Dockerfile .
-fi
+sudo docker build -t af2bind -f ./Dockerfile .
 
 # run af2bind inside docker
 sudo docker run -i -v "$INPUT_PATH":/opt/af2bind/input \
