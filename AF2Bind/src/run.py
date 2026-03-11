@@ -1,125 +1,104 @@
-###### This code is adapted from the following repository: github.com/sokrypton/af2bind (see LICENSE file) ######
-
-import numpy as np
-from colabdesign import mk_afdesign_model
-import jax, pickle
-from scipy.special import expit as sigmoid
-import gc
-
-MASK_SIDECHAINS = True
-MASK_SEQUENCE = False
-MAX_RESIDUES_COUNT = 2190 # this is the maximum number of residues that can be processed without OOM error (experimentally determined)
-
-def af2bind(outputs, mask_sidechains=True, seed=0):
-    pair_A = outputs["representations"]["pair"][:-20,-20:]
-    pair_B = outputs["representations"]["pair"][-20:,:-20].swapaxes(0,1)
-    pair_A = pair_A.reshape(pair_A.shape[0],-1)
-    pair_B = pair_B.reshape(pair_B.shape[0],-1)
-    x = np.concatenate([pair_A,pair_B],-1)
-   
-    # get params
-    if mask_sidechains:
-        model_type = f"split_nosc_pair_A_split_nosc_pair_B_{seed}"
-    else:
-        model_type = f"split_pair_A_split_pair_B_{seed}"
-    with open(f"/opt/af2bind/af2bind_params/attempt_7_2k_lam0-03/{model_type}.pickle","rb") as handle:
-        params_ = pickle.load(handle)
-    params_ = dict(**params_["~"], **params_["linear"])
-    p = jax.tree_util.tree_map(lambda x:np.asarray(x), params_)
-
-    # get predictions
-    x = (x - p["mean"]) / p["std"]
-    x = (x * p["w"][:,0]) + (p["b"] / x.shape[-1])
-    p_bind_aa = x.reshape(x.shape[0],2,20,-1).sum((1,3))
-    p_bind = sigmoid(p_bind_aa.sum(-1))
-    return {"p_bind":p_bind, "p_bind_aa":p_bind_aa}
-
-def load_model():
-    af_model = mk_afdesign_model(protocol="binder", debug=True)
-    return af_model
-
-def predict(af_model, pdb_path, chain_id):
-    try:
-        af_model.prep_inputs(pdb_filename=pdb_path,
-                                 chain=chain_id,
-                                 binder_len=20,
-                                 rm_target_sc=MASK_SIDECHAINS,
-                                 rm_target_seq=MASK_SEQUENCE)
-    except ValueError as e:
-        print(f"Error processing {pdb_path} chain {chain_id}: {e}")
-        return None
-    r_idx = af_model._inputs["residue_index"][-20] + (1 + np.arange(20)) * 50
-    af_model._inputs["residue_index"][-20:] = r_idx.flatten()
-    
-    if af_model._inputs["aatype"].shape[0] >= MAX_RESIDUES_COUNT:
-        print(f'Error: {pdb_path} chain {chain_id} has more than {MAX_RESIDUES_COUNT} residues, which would cause OOM error.')
-        return None
-    
-    print(f"Predicting binding for {pdb_path} chain {chain_id}, size {af_model._inputs['aatype'].shape}...")
-    af_model.set_seq("ACDEFGHIKLMNPQRSTVWY")
-    af_model.predict(verbose=False)
-    
-    o = af2bind(af_model.aux["debug"]["outputs"],
-                mask_sidechains=MASK_SIDECHAINS)
-    pred_bind = o["p_bind"].copy()
-    
-    return pred_bind
-
-
-###### End of adapted code ######
-
-import argparse
 import os
+import numpy as np
+import pandas as pd
 from biotite.structure.io.pdb import PDBFile, get_structure
-from biotite.structure import get_residues
+from biotite.structure import filter_peptide_backbone
 
-def save_predictions(pred_bind, output_path, pdb_filepath, chain_id):
-    with open(output_path, 'w') as f_pred:
-        f_pred.write("residue_number\tamino_acid\tchain\tp_bind\n")
-        
-        # load PDB and get residue info
-        pdb_file = PDBFile.read(pdb_filepath)    
-        protein = get_structure(pdb_file, model=1)
-        residue_ids, residue_types = get_residues(protein)
-        
-        assert len(residue_ids) == len(pred_bind), f"Length mismatch for {pdb_filepath}: {len(residue_ids)} residues vs {len(pred_bind)} predictions"
+class AF2BindPocketResidue:
+    def __init__(self, residue_number, amino_acid, average_pLDDT, p_bind, pocket_number):
+        self.residue_number = residue_number
+        self.amino_acid = amino_acid
+        self.p_bind = p_bind
+        self.average_pLDDT = average_pLDDT
+        self.pocket_number = pocket_number
 
-        # loop through residues (ids and types) and write their predicted binding probabilities to the output file
-        for res_id, res_name, p in zip(residue_ids, residue_types, pred_bind):
-            f_pred.write(f"{res_id}\t{res_name}\t{chain_id}\t{p:.4f}\n")
+def parse_pbind(pbind_str):
+    pbind = pbind_str[1:-1] # remove the square brackets
+    pbind_values = [float(x.strip()) for x in pbind.split(',')]
+    return pbind_values
+
+def parse_resnums(resnums_str):
+    resnums_str = resnums_str.split('+')
+    return np.array([int(i) for i in resnums_str])
+
+def read_pLDDTs(pdb_file_path):
+    pdb_file = PDBFile.read(pdb_file_path)
+
+    try:
+        protein = get_structure(pdb_file, model=1, extra_fields=["b_factor"])
+    except Exception as _: # possibly the file is not a valid PDB file (the download failed or the file is empty) - typical content of the file is "<?xml version='1.0' encoding='UTF-8'?><Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message></Error>"
+        return [], []
     
-    return pred_bind
+    protein = protein[filter_peptide_backbone(protein) & 
+                           (protein.atom_name == "CA") &
+                           (protein.element == "C") ]
+    pLDDTs = np.array([i.b_factor for i in protein])        
+    sequence = [i.res_name for i in protein]
+    return pLDDTs, sequence
 
-def main(input_path, output_path):
-    model = load_model()
+def main(prediction_path, pdb_files_path, output_path):
+    # NOTE: 'resnum' is one-based indexing (1=first residue)
+    binding_pockets_df = pd.read_csv(prediction_path, sep=",", header=0)
+    # filter the CSV before processing sequentially
+    binding_pockets_df = binding_pockets_df[["uniprot", "AF2BIND_cluster", "AF2BIND_cluster_resnums", "AF2BIND_pbind"]]
+    binding_pockets_df = binding_pockets_df.dropna(how='all', subset=["AF2BIND_cluster", "AF2BIND_cluster_resnums", "AF2BIND_pbind"]) # if all values in the row are NaN, drop the row
+    grouped = binding_pockets_df.groupby(['uniprot'])
 
-    for file in os.listdir(input_path):
-        output_filename = file.replace(".pdb", ".txt")
-        if not file.endswith(".pdb"):
+    
+    for uniprot, group in grouped:
+        uniprot = uniprot[0]
+        print(f"Processing uniprot {uniprot}...")
+        AF_filepath = os.path.join(pdb_files_path, f'AF-{uniprot}-F1-model_v6.pdb')
+        if not os.path.exists(AF_filepath):
             continue
-        if output_filename in os.listdir(output_path):
+        pLDDTs, sequence = read_pLDDTs(AF_filepath)
+        if len(pLDDTs) == 0 or len(sequence) == 0:
+            print(f"Warning: Could not read pLDDTs or sequence for uniprot {uniprot}. Skipping this uniprot.")
             continue
-
-        input_path_file = os.path.join(input_path, file)
-
-        print(f"Processing {input_path_file}...")
-
-# ----> CAUTION: the chain ID needs to be changed if the structure is not AlphaFold output
-        chain_id = "A"
-        gc.collect()
-        # K.clear_session()
-
-        predictions = predict(model, input_path_file, chain_id)
-        if predictions is None: # this might happen if there was an error processing the PDB
+        valid_predictions = True
+        binding_residues = {}
+        for _, row in group.iterrows():
+            pocket_number = int(row['AF2BIND_cluster'])
+            p_bind = parse_pbind(row['AF2BIND_pbind'])
+            pocket_residue_numbers = parse_resnums(row['AF2BIND_cluster_resnums'])
+            
+            # check if prediction residue numbering isn't longer than our AF-predicted PDB structure
+            if max(pocket_residue_numbers) > len(sequence):
+                print(f"Warning: For uniprot {uniprot}, pocket {pocket_number}, the maximum residue number in the predicted pocket ({max(pocket_residue_numbers)}) exceeds the length of the sequence ({len(sequence)}). Skipping this pocket.")
+                valid_predictions = False
+                break
+            
+            # pocket-wise average pLDDT
+            average_pLDDT = np.mean(pLDDTs[pocket_residue_numbers - 1]) # -1 because of one-based indexing
+            
+            # save each pocket residue
+            for (this_residue_number, this_pbind) in zip(pocket_residue_numbers, p_bind):
+                binding_residues[this_residue_number] = AF2BindPocketResidue(
+                    residue_number=this_residue_number,
+                    amino_acid=sequence[this_residue_number - 1], # -1 because of one-based indexing
+                    average_pLDDT=average_pLDDT, 
+                    p_bind=this_pbind, 
+                    pocket_number=pocket_number)
+        
+        if not valid_predictions:
+            print(f"Skipping uniprot {uniprot} due to invalid predictions.")
             continue
         
-        save_predictions(predictions, os.path.join(output_path, output_filename), input_path_file, chain_id)
-
-
+        # loop over all residues in the sequence
+        with open(f'{output_path}/{uniprot}.csv', 'w') as f:
+            f.write("residue_number\tamino_acid\tchain\tpocket_number\tp_bind\taverage_pLDDT\n")
+            for residue_number in range(1, len(sequence) + 1): # one-based indexing
+                amino_acid = sequence[residue_number - 1] # -1 because of one-based indexing
+                if residue_number in binding_residues.keys():
+                    f.write(f"{residue_number}\t{amino_acid}\tA\t{binding_residues[residue_number].pocket_number}\t{binding_residues[residue_number].p_bind:.2f}\t{binding_residues[residue_number].average_pLDDT:.2f}\n")
+                else:
+                    f.write(f"{residue_number}\t{amino_acid}\tA\t\t\t\n")
+            
 if __name__ == "__main__":
+    import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input_path', type=str, required=True)
+    parser.add_argument('--prediction_path', type=str, required=True)
+    parser.add_argument('--pdb_files_path', type=str, required=True)
     parser.add_argument('--output_path', type=str, required=True)
     args = parser.parse_args()
-
-    main(args.input_path, args.output_path)
+    main(args.prediction_path, args.pdb_files_path, args.output_path)

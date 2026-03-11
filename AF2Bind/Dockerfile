@@ -21,18 +21,12 @@ RUN apt update -y && apt upgrade -y && \
     ./configure --enable-optimizations && \
     make altinstall
 
-# install python packages and download model parameters
-RUN python3.12 -m pip install "jax[cuda]==0.7" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
-    && python3.12 -m pip install git+https://github.com/sokrypton/ColabDesign.git@v1.1.1 \
-    && aria2c -q -x 16 https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar \
-    && mkdir af2bind_params \
-    && wget -qnc https://github.com/sokrypton/af2bind/raw/main/attempt_7_2k_lam0-03.zip \
-    && unzip attempt_7_2k_lam0-03.zip -d af2bind_params \
-    && mkdir params \
-    && tar -xf alphafold_params_2021-07-14.tar -C params
-
 # install biotite for post-processing
-RUN python3.12 -m pip install biotite
+RUN python3.12 -m pip install biotite pandas
+
+RUN wget https://zenodo.org/records/17683380/files/analysis_files.tar.gz?download=1 -O analysis_files.tar.gz && \
+    tar -xzf analysis_files.tar.gz && \
+    rm analysis_files.tar.gz
 
 # copy source code
 COPY ./src /opt/af2bind

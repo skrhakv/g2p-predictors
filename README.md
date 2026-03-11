@@ -21,14 +21,14 @@ sudo bash run-docker.sh /media/drive1/g2p_data/shared_data/alphafold_v6/pdb /med
 ```
 
 ## AF2Bind
-Similarly, the `AF2Bind/run-docker.sh` script can be used to run the AF2Bind predictor:
+Similarly, the `AF2Bind/run-docker.sh` script can be used to extract the predicted binding sites for human proteome from [this Zenodo repository](https://zenodo.org/records/17683380):
 ```
 sudo bash run-docker.sh <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>
 ```
 where `<FULL-INPUT-PATH>` contains all `.pdb` files for the prediction. 
 
 ## Configuration
-Currently, both P2Rank and AF2bind are configured for AlphaFold-predicted structures. For predicting on the experimental PDB structures, the following steps must be conducted:
+Currently, P2Rank is  configured for AlphaFold-predicted structures. For predicting on the experimental PDB structures, the following steps must be conducted:
 1. the `-c alphafold` parameter must be removed when running P2Rank (see `p2rank/run-docker.sh`).
 2. the correct chain ID needs to be selected in the `AF2Bind/src/run.py` script (for now, chain A is hard coded).
 
