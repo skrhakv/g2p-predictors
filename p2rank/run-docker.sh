@@ -21,7 +21,9 @@ if ! sudo docker image inspect p2rank &> /dev/null; then
 fi
 
 # run p2rank inside docker
-sudo docker run -i -v "$INPUT_PATH":/opt/p2rank/input -v "$OUTPUT_PATH":/opt/p2rank/output -t p2rank ./prank predict -o output/ -c alphafold input/input.ds -visualizations 0
+sudo docker run -v "$INPUT_PATH":/opt/p2rank/input 
+                -v "$OUTPUT_PATH":/opt/p2rank/output
+                p2rank ./prank predict -o output/ -c alphafold input/input.ds -visualizations 0
 
 # post-processing: extract pockets from _residues.csv files, reformat and clean up
 python3 ./post-processing.py --prediction_path "$OUTPUT_PATH" --pdb_files_path "$INPUT_PATH"
