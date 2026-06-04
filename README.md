@@ -7,11 +7,14 @@ First you need to install the biotite package which is used in the post-processi
 python3 -m pip install biotite
 ```
 
-Deployment of docker with P2Rank is done summarized in `p2rank/run-docker.sh` script. Two parameters need to be provided: 
+Deployment of docker with P2Rank is done summarized in `p2rank/run-docker.sh` script. Three parameters need to be provided: 
 ```
-sudo bash run-docker.sh <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>
+sudo bash run-docker.sh --uniref <FULL-UNIREF-PATH> <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>
 ```
-where `<FULL-INPUT-PATH>` contains all `*.cif` and `.pdb` files for the prediction. 
+where `<FULL-INPUT-PATH>` contains all `*.cif` and `.pdb` files for the prediction and `<FULL-UNIREF-PATH>` is a FASTA file containing the UniRef50 database; see [the p2rank docs](https://github.com/rdk/prankweb/tree/conservation-server/executor-p2rank/conservation) for the download link, or try:
+```
+wget https://ftp.expasy.org/databases/uniprot/current_release/uniref/uniref50/uniref50.fasta.gz && gunzip uniref50.fasta.gz
+```
 
 Example input and output folders can be found at `p2rank/input` and `p2rank/output`. 
 

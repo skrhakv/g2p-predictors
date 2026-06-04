@@ -1,5 +1,20 @@
 #
-# Stage 1: Build HMMER 3.3.2 from source
+# Stage 1: Download prankweb source at pinned commit (conservation-server branch)
+#
+FROM debian:bookworm-20260112-slim AS prankweb-src
+
+ARG PRANKWEB_COMMIT=ea2ae537c3a7c6a590120ec83d7f0edee52e348a
+
+RUN apt-get update \
+  && apt-get -y --no-install-recommends install wget ca-certificates
+
+RUN wget -q https://github.com/rdk/prankweb/archive/${PRANKWEB_COMMIT}.tar.gz -O prankweb.tar.gz \
+  && tar -xzf prankweb.tar.gz \
+  && mv prankweb-${PRANKWEB_COMMIT} /prankweb \
+  && rm prankweb.tar.gz
+
+#
+# Stage 2: Build HMMER 3.3.2 from source
 #
 FROM debian:bookworm-20260112-slim AS hmmer-build
 
@@ -18,7 +33,7 @@ RUN wget http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz -q \
   && rm -rf hmmer-3.3.2 hmmer-3.3.2.tar.gz
 
 #
-# Stage 2: Conservation server
+# Stage 3: Conservation server
 #
 FROM debian:bookworm-20260112-slim
 
@@ -31,27 +46,33 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-COPY prankweb/executor-p2rank/conservation/conservation_server/requirements.txt /tmp/conservation-requirements.txt
+COPY --from=prankweb-src \
+    /prankweb/executor-p2rank/conservation/conservation_server/requirements.txt \
+    /tmp/conservation-requirements.txt
 RUN pip install --no-cache-dir -r /tmp/conservation-requirements.txt
 
 COPY --from=hmmer-build /opt/hmmer-3.3.2 /opt/hmmer-3.3.2
 
-# Conservation Python scripts (from prankweb submodule)
-COPY prankweb/conservation/hmm_based/conservation_hmm_based.py /opt/hmm-based-conservation/
+COPY --from=prankweb-src \
+    /prankweb/conservation/hmm_based/conservation_hmm_based.py \
+    /opt/hmm-based-conservation/
 # Stub: conservation_wrapper imports this at module load but we never call it
 COPY conservation_alignment_based_stub.py /opt/hmm-based-conservation/conservation_alignment_based.py
 
-COPY prankweb/executor-p2rank/conservation_wrapper.py \
-     prankweb/executor-p2rank/conservation_cache.py \
-     prankweb/executor-p2rank/model.py \
-     /opt/executor-p2rank/
+COPY --from=prankweb-src \
+    /prankweb/executor-p2rank/conservation_wrapper.py \
+    /prankweb/executor-p2rank/conservation_cache.py \
+    /prankweb/executor-p2rank/model.py \
+    /opt/executor-p2rank/
 
-COPY prankweb/executor-p2rank/conservation/__init__.py \
-     prankweb/executor-p2rank/conservation/run_conservation.py \
-     /opt/executor-p2rank/conservation/
+COPY --from=prankweb-src \
+    /prankweb/executor-p2rank/conservation/__init__.py \
+    /prankweb/executor-p2rank/conservation/run_conservation.py \
+    /opt/executor-p2rank/conservation/
 
-COPY prankweb/executor-p2rank/conservation/conservation_server/ \
-     /opt/executor-p2rank/conservation/conservation_server/
+COPY --from=prankweb-src \
+    /prankweb/executor-p2rank/conservation/conservation_server/ \
+    /opt/executor-p2rank/conservation/conservation_server/
 
 ENV HMMER_DIR=/opt/hmmer-3.3.2/bin/
 ENV HMM_SEQUENCE_FILE=/data/uniref50.fasta
