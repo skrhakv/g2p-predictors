@@ -1,0 +1,64 @@
+#
+# Stage 1: Build HMMER 3.3.2 from source
+#
+FROM debian:bookworm-20260112-slim AS hmmer-build
+
+RUN apt-get update \
+  && apt-get -y --no-install-recommends install wget ca-certificates make g++ zlib1g-dev
+
+RUN wget http://eddylab.org/software/hmmer/hmmer-3.3.2.tar.gz -q \
+  && tar -xzf hmmer-3.3.2.tar.gz \
+  && cd hmmer-3.3.2 \
+  && ./configure --prefix /opt/hmmer-3.3.2 \
+  && make \
+  && make install \
+  && cd easel \
+  && make install \
+  && cd ../../ \
+  && rm -rf hmmer-3.3.2 hmmer-3.3.2.tar.gz
+
+#
+# Stage 2: Conservation server
+#
+FROM debian:bookworm-20260112-slim
+
+RUN apt-get update \
+  && apt-get -y --no-install-recommends install \
+  python3 python3-venv \
+  libgomp1
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY prankweb/executor-p2rank/conservation/conservation_server/requirements.txt /tmp/conservation-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/conservation-requirements.txt
+
+COPY --from=hmmer-build /opt/hmmer-3.3.2 /opt/hmmer-3.3.2
+
+# Conservation Python scripts (from prankweb submodule)
+COPY prankweb/conservation/hmm_based/conservation_hmm_based.py /opt/hmm-based-conservation/
+# Stub: conservation_wrapper imports this at module load but we never call it
+COPY conservation_alignment_based_stub.py /opt/hmm-based-conservation/conservation_alignment_based.py
+
+COPY prankweb/executor-p2rank/conservation_wrapper.py \
+     prankweb/executor-p2rank/conservation_cache.py \
+     prankweb/executor-p2rank/model.py \
+     /opt/executor-p2rank/
+
+COPY prankweb/executor-p2rank/conservation/__init__.py \
+     prankweb/executor-p2rank/conservation/run_conservation.py \
+     /opt/executor-p2rank/conservation/
+
+COPY prankweb/executor-p2rank/conservation/conservation_server/ \
+     /opt/executor-p2rank/conservation/conservation_server/
+
+ENV HMMER_DIR=/opt/hmmer-3.3.2/bin/
+ENV HMM_SEQUENCE_FILE=/data/uniref50.fasta
+ENV HMM_CONSERVATION_CACHE=/data/conservation-cache/
+ENV PYTHONPATH=/opt/hmm-based-conservation:/opt/executor-p2rank
+
+EXPOSE 8030
+
+CMD ["python3", "-m", "uvicorn", "conservation.conservation_server.main:app", \
+     "--host", "0.0.0.0", "--port", "8030"]
