@@ -7,7 +7,7 @@ First you need to install the biotite package which is used in the post-processi
 python3 -m pip install biotite
 ```
 
-Deployment of docker with P2Rank is done summarized in `p2rank/run-docker.sh` script. Three parameters need to be provided: 
+Deployment of docker with P2Rank is summarized in `p2rank/run-docker.sh` script. Three parameters need to be provided: 
 ```
 sudo bash run-docker.sh --uniref <FULL-UNIREF-PATH> <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>
 ```
@@ -29,11 +29,6 @@ Similarly, the `AF2Bind/run-docker.sh` script can be used to extract the predict
 sudo bash run-docker.sh <FULL-INPUT-PATH> <FULL-OUTPUT-PATH>
 ```
 where `<FULL-INPUT-PATH>` contains all `.pdb` files for the prediction. 
-
-## Configuration
-Currently, P2Rank is  configured for AlphaFold-predicted structures. For predicting on the experimental PDB structures, the following steps must be conducted:
-1. the `-c alphafold` parameter must be removed when running P2Rank (see `p2rank/run-docker.sh`).
-2. the correct chain ID needs to be selected in the `AF2Bind/src/run.py` script (for now, chain A is hard coded).
 
 
 ## Future work
